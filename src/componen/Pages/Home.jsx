@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { use } from 'react';
 import { GoPlus } from 'react-icons/go';
 import Card from './Card/Card';
+const promiss = fetch('/data.json').then(res=> res.json()); 
+
 
 const Home = () => {
-  const promiss = fetch('/data.json').then(res=> res.json());
-  console.log(promiss);
   
+  const frends = use(promiss);
+  // console.log('shoeingnnnnnnnnnn', frends);
+
     return (
         <div className='bg-[#F8FAFC] w-10/12 mx-auto text-center space-y-3 pt-5 pb-5'>
            
@@ -44,7 +47,11 @@ const Home = () => {
             <div className='border-t-1  border-gray-600 mt-9 pt-4 pb-10 '>
             <h1 className='lg:text-2xl pb-5 text-start font-semibold pt-5 sm:text-3xl' >Your Friends</h1>
 
-            <Card></Card>
+            <div className='grid grid-cols-4 space-x-5 space-y-5 '>
+              {
+                frends.map(frend=>( <Card frend={frend}></Card>  ))
+              }
+            </div>
 
             </div>
 

@@ -30,7 +30,7 @@ const Timeline = () => {
             {
                forcall.map(call=>(<div className='bg-white rounded-2xl p-2 flex space-x-3 '>
                 <div className='flex justify-center items-center '>
-                   <FaHandshake />
+                   <img src="../../../public/call-image.png" alt="" />
                 </div>
                 <div>
                     <div className='flex space-x-2 justify-center items-center'>
@@ -46,7 +46,7 @@ const Timeline = () => {
             {
                 fortext.map(tett =>(<div className='bg-white rounded-2xl p-2 flex space-x-3 '>
                 <div className='flex justify-center items-center '>
-                   <IoMdText />
+                    <img src="../../../public/text-image.png" alt="" />
                 </div>
                 <div>
                     <div className='flex space-x-2 justify-center items-center'>
@@ -61,7 +61,7 @@ const Timeline = () => {
             {
                 videooo.map(videoo=>( <div className='bg-white rounded-2xl p-2 flex space-x-3 '>
                 <div className='flex justify-center items-center '>
-                   <FaVideo />
+                    <img src="../../../public/vide-image.png" alt="" />
                 </div>
                 <div>
                     <div className='flex space-x-2 justify-center items-center'>

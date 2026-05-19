@@ -9,6 +9,9 @@ import Timeline from './componen/Pages/Timeline';
 import Stats from './componen/Pages/Stats';
 import Singleprofilepage from './componen/Pages/Card/Singleprofilepage';
 import Frendprovider from './context/Frendprovider';
+import Textprovider from './context/Textprovider';
+import Videoprovider from './context/Videoprovider';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -40,7 +43,12 @@ const router= createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Frendprovider>
+      <Textprovider>
+        <Videoprovider>
      <RouterProvider router={router} />
+      <ToastContainer />
+     </Videoprovider>
+     </Textprovider>
      </Frendprovider>
      
   </StrictMode>,

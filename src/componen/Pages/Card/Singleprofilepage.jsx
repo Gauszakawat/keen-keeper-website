@@ -7,6 +7,8 @@ import { IoVideocamSharp } from "react-icons/io5";
 import { IoMdText } from "react-icons/io";
 import { useParams } from 'react-router';
 import Frendprovider, { Frendcontext } from '../../../context/Frendprovider';
+import { Textcontext } from '../../../context/Textprovider';
+import { videocontext } from '../../../context/Videoprovider';
 
 const promis = fetch('/data.json').then(res=> res.json()); 
 
@@ -22,16 +24,16 @@ const Singleprofilepage = () => {
 
     const {forcall, setforcall, callhandle}= useContext(Frendcontext); 
 
-    console.log(forcall, setforcall, callhandle, 'ha ha ha')
+    // console.log(forcall, setforcall, callhandle, 'ha ha ha')
+
+    const {fortext, setfortext, texthandle}= useContext(Textcontext); 
+
+    // video/////////////
+
+        const {videooo, setvideooo, videohandle}= useContext(videocontext); 
 
 
-    const texthandle= (id)=>{
-        // console.log(id);
-    };
 
-    const videohandle= (id)=>{
-        // console.log(id);
-    };
 
 
 
@@ -147,12 +149,12 @@ const Singleprofilepage = () => {
                                     <h1 className='3xl font-semibold text-black'>Call</h1>
                                 </button>
 
-                                <div onClick={()=>{texthandle(id)}} className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
+                                <div onClick={()=>{texthandle(spicialdata)}} className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
                                     <IoMdText className='mx-auto' />
                                     <h1 className='3xl font-semibold text-black'>Text</h1>
                                 </div>
 
-                                <div onClick={()=>{videohandle(id)}} className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
+                                <div onClick={()=>{videohandle(spicialdata)}} className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
                                     <IoVideocamSharp className='mx-auto' />
                                     <h1 className='3xl font-semibold text-black'>Video</h1>
                                 </div>

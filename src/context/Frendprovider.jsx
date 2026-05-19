@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const Frendcontext = createContext()
 
@@ -10,16 +11,18 @@ const [ forcall , setforcall] = useState([]);
         const isexitfrd = forcall.find(frid=> frid.id === currentfrd.id );
 
         if(isexitfrd){
-            alert('The request is already listed');
+            toast.error('The request is already listed');
             return;
         } else{
             setforcall([...forcall, currentfrd])
+            toast.success(`congratulation you have successfully added ${currentfrd.name}`);
+
         }
         // console.log(spicialdata,'ha ha ha');
     };
 
     const data = {
-       forcall , 
+       forcall,
        setforcall , 
        callhandle 
     };

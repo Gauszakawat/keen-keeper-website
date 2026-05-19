@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Card = ({frend}) => {
   // console.log(frend)
     return (
-        <a href={`/Singleprofilepage/${frend.id}`}>
+        <Link to={`/Singleprofilepage/${frend.id}`}>
         <div className='bg-white rounded-2xl p-4 space-y-2 card '>
               <img className='w-[80px] rounded-full mx-auto' src={frend.picture} alt="" />
 
@@ -28,7 +29,7 @@ const Card = ({frend}) => {
 
 
 
-        </div></a>
+        </div></Link>
                    
     );
 };

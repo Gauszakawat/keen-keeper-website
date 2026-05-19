@@ -1,16 +1,67 @@
-# React + Vite
+# KeenKeeper — Keep Your Friendships Alive
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Description
 
-Currently, two official plugins are available:
+KeenKeeper হলো একটি Friendship Tracking Web Application যেখানে ইউজার তার বন্ধুদের সাথে যোগাযোগের হিসাব রাখতে পারে।
+এই অ্যাপের মাধ্যমে Call, Text এবং Video interaction track করা যায় এবং Timeline ও Analytics এর মাধ্যমে সম্পর্কের activity দেখা যায়।
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 ব্যবহৃত Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React.js
+* React Router DOM
+* Tailwind CSS
+* React Icons
+* React Toastify
+* Recharts
+* Context API
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+### 👥 Friend Management
+
+বন্ধুদের তথ্য card আকারে দেখা যায় এবং প্রতিটি বন্ধুর আলাদা details page রয়েছে।
+
+### 📜 Timeline Tracking
+
+Call, Text এবং Video interaction Timeline এ automatic save হয়।
+
+### 📊 Friendship Analytics
+
+Pie Chart এর মাধ্যমে Call, Text এবং Video interaction এর statistics দেখা যায়।
+
+### 🔔 Toast Notification
+
+Interaction button click করলে সুন্দর toast notification show হয়।
+
+### 📱 Responsive Design
+
+Website টি Mobile, Tablet এবং Desktop সব device এ সুন্দরভাবে কাজ করে।
+
+### ⚡ Dynamic Routing
+
+প্রতিটি বন্ধুর জন্য আলাদা dynamic details page তৈরি করা হয়েছে।
+
+### ❌ 404 Error Page
+
+Invalid route এ গেলে custom 404 page show করে।
+
+---
+
+## 📂 Pages
+
+* Home Page
+* Friend Details Page
+* Timeline Page
+* Stats Page
+* 404 Page
+
+
+---
+
+## 💻 GitHub Repository
+
+https://github.com/Gauszakawat/keen-keeper-website

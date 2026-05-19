@@ -12,6 +12,7 @@ import Frendprovider from './context/Frendprovider';
 import Textprovider from './context/Textprovider';
 import Videoprovider from './context/Videoprovider';
 import { ToastContainer } from 'react-toastify';
+import Four from './componen/Pages/four';
 
 
 
@@ -35,6 +36,9 @@ const router= createBrowserRouter([
     },{
       path:"Singleprofilepage/:id",
       element:<Singleprofilepage/>,
+    },{
+      path: "*",
+      element: <Four/>
     }
   ]
 },

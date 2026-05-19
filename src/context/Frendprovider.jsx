@@ -12,7 +12,7 @@ const [ forcall , setforcall] = useState([]);
 
         if(isexitfrd){
             toast.error('The request is already listed');
-            return;
+            return; 
         } else{
             setforcall([...forcall, currentfrd])
             toast.success(`congratulation you have successfully added ${currentfrd.name}`);

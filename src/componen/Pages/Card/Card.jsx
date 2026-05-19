@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Card = ({frend}) => {
-  console.log(frend)
+  // console.log(frend)
     return (
+        <a href={`/Singleprofilepage/${frend.id}`}>
         <div className='bg-white rounded-2xl p-4 space-y-2 card '>
               <img className='w-[80px] rounded-full mx-auto' src={frend.picture} alt="" />
 
@@ -27,7 +28,7 @@ const Card = ({frend}) => {
 
 
 
-        </div>
+        </div></a>
                    
     );
 };

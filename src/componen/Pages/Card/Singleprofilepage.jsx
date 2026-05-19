@@ -1,15 +1,40 @@
-import React from 'react';
+import React, { use, useContext, useState } from 'react';
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { BsArchive } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
 import { LuPhoneCall } from "react-icons/lu";
 import { IoVideocamSharp } from "react-icons/io5";
 import { IoMdText } from "react-icons/io";
+import { useParams } from 'react-router';
+import Frendprovider, { Frendcontext } from '../../../context/Frendprovider';
 
+const promis = fetch('/data.json').then(res=> res.json()); 
 
 
 
 const Singleprofilepage = () => {
+ 
+    const {id} = useParams();
+    const frendsdata = use(promis);
+    const spicialdata = frendsdata.find(frd=> frd.id == id)
+
+    
+
+    const {forcall, setforcall, callhandle}= useContext(Frendcontext); 
+
+    console.log(forcall, setforcall, callhandle, 'ha ha ha')
+
+
+    const texthandle= (id)=>{
+        // console.log(id);
+    };
+
+    const videohandle= (id)=>{
+        // console.log(id);
+    };
+
+
+
     return (
         <div className='bg-[#F8FAFC]'>
             <div className='lg:flex  sm:grid grid-cols-1 lg:w-8/12 sm:w-full mx-auto mt-5 mb-5 pt-10 pb-10 space-x-5 space-y-5'>
@@ -18,28 +43,28 @@ const Singleprofilepage = () => {
 
                     <div className='text-center'>
                         <div className='bg-white rounded-2xl p-4 space-y-2 card '>
-                            <img className='w-[80px]  mx-auto' src="/public/demo image.png" alt="" />
+                            <img className='w-[80px] rounded-full  mx-auto' src={spicialdata.picture} alt="" />
 
 
-                            <h1 className='lg:text-2xl pb-1  font-semibold pt-5 sm:text-3xl' >David</h1>
+                            <h1 className='lg:text-2xl pb-1  font-semibold pt-5 sm:text-3xl' >{spicialdata.name}</h1>
 
 
                             {/*   btm */}
                             <div className='flex space-x-2'>
-                                <button className='btn bg-[#CBFADB] rounded-full w-[110px] mt-2 mx-auto p-1'>work</button>
 
-                                <button className='btn bg-[#CBFADB] rounded-full w-[110px] mt-2 mx-auto p-1'>work</button>
-
-                            </div>
+                                {
+                                    spicialdata.tags.map(tag=> <button className='btn bg-[#CBFADB] rounded-full w-[110px] mt-2 mx-auto p-1'>{tag}</button>)
+                                }
+                                </div>
 
                             {/*  stus  */}
-                            <button className='btn bg-[#EFAD44] text-white rounded-full w-[120px] mx-auto p-1'>Almost Due</button>
+                            <button className={`${spicialdata.status === "overdue" ? "bg-red-500" : "bg-green-500" } btn text-white rounded-full w-[120px] mx-auto p-1`}>{spicialdata.status}</button>
 
 
 
                             {/* title */}
-                            <p className='sm:text-[15px]'>"Former colleague, great mentor"</p>
-                            <p className='sm:text-[15px]'>Preferred: email</p>
+                            <p className='sm:text-[15px]'>{spicialdata.bio}</p>
+                            <p className='sm:text-[15px]'>Preferred: {spicialdata.email}</p>
 
                         </div>
 
@@ -79,17 +104,17 @@ const Singleprofilepage = () => {
                     {/* 111111111111111 */}
                     <div className=' grid lg:grid-cols-3 sm:grid-cols-1 space-y-3 text-center space-x-3'>
                         <div className='bg-white rounded-2xl p-7 '>
-                            <h1 className='5xl font-bold text-black'>62</h1>
+                            <h1 className='5xl font-bold text-black'>{spicialdata.days_since_contact}</h1>
                             <p className='text-1xl'>Days Since Contact</p>
                         </div>
 
                         <div className='bg-white rounded-2xl p-7 '>
-                            <h1 className='5xl font-bold text-black'>30</h1>
+                            <h1 className='5xl font-bold text-black'>{spicialdata.goal}</h1>
                             <p className='text-1xl'>Goal (Days)</p>
                         </div>
 
                         <div className='bg-white rounded-2xl p-7 '>
-                            <h1 className='5xl font-bold text-black'>Feb 27, 2026</h1>
+                            <h1 className='5xl font-bold text-black'>{spicialdata.next_due_date}</h1>
                             <p className='text-1xl'>Next Due</p>
                         </div>
 
@@ -116,17 +141,18 @@ const Singleprofilepage = () => {
                             <h1 className='5xl font-bold text-black'>Quick Check-In</h1>
 
                             <div className='flex text-center grid grid-cols-3 mt-3 space-x-3 '>
-                                <div className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
+
+                                <button onClick={()=>{callhandle(spicialdata)}} className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
                                     <LuPhoneCall className='mx-auto' />
                                     <h1 className='3xl font-semibold text-black'>Call</h1>
-                                </div>
+                                </button>
 
-                                <div className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
+                                <div onClick={()=>{texthandle(id)}} className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
                                     <IoMdText className='mx-auto' />
                                     <h1 className='3xl font-semibold text-black'>Text</h1>
                                 </div>
 
-                                <div className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
+                                <div onClick={()=>{videohandle(id)}} className='bg-[#F8FAFC] rounded-2xl p-5 justify-center '>
                                     <IoVideocamSharp className='mx-auto' />
                                     <h1 className='3xl font-semibold text-black'>Video</h1>
                                 </div>

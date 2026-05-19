@@ -2,36 +2,35 @@ import React, { useState } from 'react';
 import { MdOutlineWatchLater } from 'react-icons/md';
 import { RiHome2Line } from 'react-icons/ri';
 import { TfiStatsUp } from 'react-icons/tfi';
+import { Link } from 'react-router';
 
-const Navber = ({setcolor, color}) => {
+const Navber = () => {
 
-    // const [color, setcolor] = useState('activ');
+    const [color, setcolor] = useState('activ');
 
     return (
         <div className="navbar bg-white shadow-sm ">
             <div className='w-10/12 mx-auto navbar'>
                 <div className="flex-1">
-                <a href='/' className="btn btn-ghost text-xl"><b>Keen</b>Keeper</a>
+                <Link to='/' className="btn btn-ghost text-xl"><b>Keen</b>Keeper</Link>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1 space-x-2">
-
-                    <li><button onClick={()=> setcolor('activ')} 
+ 
+                    <li><Link onClick={()=> setcolor('activ')} 
                      className={`${color  === 'activ' ? 'bg-[#244D3F] text-white'
                   : 'bg-transparent'
-                }`} href='/'><RiHome2Line/>Home</button></li>
+                }`}to='/'><RiHome2Line/>Home</Link></li>
 
-                    <li> <button onClick={()=> setcolor('timeline')} 
+                    <li> <Link onClick={()=> setcolor('timeline')} 
                     className={`${color === 'timeline' ? 'bg-[#244D3F] text-white'
                   : 'bg-transparent'
-                }`} 
-                    href='/Timeline'><MdOutlineWatchLater/>Timeline</button></li>
+                }`}to='/Timeline'><MdOutlineWatchLater/>Timeline</Link></li>
 
-                    <li><button onClick={()=> setcolor('stats')}
+                    <li><Link onClick={()=> setcolor('stats')}
                      className={`${color === 'stats' ? 'bg-[#244D3F] text-white'
                   : 'bg-transparent'
-                }`}
-                      href='/Stats'><TfiStatsUp/>Stats</button></li>
+                }`}to='/Stats'><TfiStatsUp/>Stats</Link></li>
 
 
                 </ul>

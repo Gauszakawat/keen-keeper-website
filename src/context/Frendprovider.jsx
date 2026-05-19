@@ -10,7 +10,7 @@ const [ forcall , setforcall] = useState([]);
     const callhandle= (currentfrd)=>{
         const isexitfrd = forcall.find(frid=> frid.id === currentfrd.id );
 
-        if(isexitfrd){
+        if(isexitfrd){ 
             toast.error('The request is already listed');
             return; 
         } else{
